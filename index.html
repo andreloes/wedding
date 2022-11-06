@@ -1,0 +1,392 @@
+<!DOCTYPE HTML>
+
+<html>
+	
+	<head>
+	<meta name="generator" content="Hugo 0.102.3" />
+	<title>Hugo Story</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="robots" content="noindex,nofollow">
+	
+	<meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">	
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	
+	
+	
+	
+	<link rel="stylesheet" href="/assets/css/main.min.css">
+	
+	
+	
+	<noscript><link rel="stylesheet" href="/assets/css/noscript.min.css" /></noscript>
+	
+</head>
+
+
+	<body class="is-preload">
+
+		
+		<div id="wrapper" class="divided">
+
+	<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+    <div class="content">
+        <h1>Welcome to our wedding</h1>
+        <h2 class="major">Välkomna till vårt bröllop</h2>
+        <h2 class="major">Welkom op onze bruiloft</h2>
+        <p class="major">29.07.2023
+</p>
+        
+        
+    </div>
+    <div class="image">
+        <img src="images/rings.jpg" alt="Hugo Story" />
+    </div>
+</section>
+
+	<style>
+    #map {
+        height: 100%;
+    }
+</style>
+
+
+<section class="spotlight style5 orient-left content-align-left image-position-center onscroll-image-fade-in" id="first">
+    <div class="content">
+        <h2>LOCATION - Solf, Finland</h2>
+        <p><b>Solf</b> is a small village on the west coast of Finland. The nearest city is <b>Vaasa</b> which is around 20km away and the closest that public transportation will bring you</p>
+        <p></p>
+        <ul class="actions stacked">
+            <div id="map" style="height: 500px;" class="orient-right"></div>
+        </ul>
+    </div>
+    <div class="image">
+        <img src="images/finland-sunset2.jpg" alt="">
+    </div>
+</section>
+
+
+<script
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCehiXL1aCTZLewo8FbZzoNCtU3uDbnwbk&callback=initMap&v=weekly"
+defer
+></script>
+<script>
+
+function initMap() {
+    var solfKyrka = new google.maps.LatLng(63.0120353454586,21.645781729512336);
+    var hemmer = new google.maps.LatLng(63.014594519807694, 21.644823656566597);
+
+    var kyrkContent =
+        '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" +
+        '<h4 id="firstHeading" class="firstHeading">Solf Kyrka</h4>' +
+        '<div id="bodyContent">' +
+        "<p style='margin: 0;'>15:00</p>" +
+        "<p style='margin: 0;'>Västersolfvägen 12</p>" +
+        "<p style='margin: 0;'>65450 Solf, Finland</p>" +
+        '<p style="margin: 0;"><a href="https://www.solfsforsamling.fi/kirkko-ja-tilat/solfs-kyrka" target="_blank">Website</a></p>' +
+        '<p style="margin: 0;"><a href="https://www.google.com/maps/dir/?api=1&destination=V%C3%A4stersolfv%C3%A4gen%20352,%2065450%20Solf,%20Finland" target="_blank">Directions</a>.</p>' +
+        "</div>" +
+        "</div>";
+
+    var hemmerContent =
+    '<div id="content">' +
+        '<div id="siteNotice">' +
+        "</div>" +
+        '<h4 id="firstHeading" class="firstHeading">Hemmersgården</h4>' +
+        '<div id="bodyContent">' +
+        "<p style='margin: 0;'>Party location, 5 minute walking distance from the church</p>" +
+        "<p style='margin: 0;'>16:00</p>" +
+        "<p style='margin: 0;'>Stundarsvägen 5</p>" +
+        "<p style='margin: 0;'>65450 Solf, Finland</p>" +
+        '<p style="margin: 0;"><a href="https://www.google.com/maps/dir/?api=1&destination=Ravintola%20Hemmersg%C3%A5rden%2C%20Stundarsv%C3%A4gen%205%2C%2065450%20Solf%2C%20Finland" target="_blank">Directions</a>.</p>' +
+        "</div>" +
+        "</div>";
+
+    var mapOptions = {
+        zoom: 14,
+        center: solfKyrka,
+        mapId: "c7a2e881e52d37a9",
+        zoomControl: true,
+        mapTypeControl: false,
+        scaleControl: false,
+        streetViewControl: false,
+        rotateControl: false,
+        fullscreenControl: false
+    }
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    var kyrkMarker = new google.maps.Marker({
+        position: solfKyrka,
+        title:"Solf kyrka - 15:00"
+    });
+
+    kyrkmarker = new google.maps.InfoWindow({content: kyrkContent}).open({
+        anchor: kyrkMarker,
+        map,
+        shouldFocus: false,
+    });
+
+    var hemmerMarker = new google.maps.Marker({
+        position: hemmer,
+        title:"Hemmergården"
+    });
+
+    hemmerMarker.addListener("click", () => {
+        new google.maps.InfoWindow({content: hemmerContent}).open({
+            anchor: hemmerMarker,
+            map,
+            shouldFocus: false,
+        });
+    });
+
+    kyrkMarker.setMap(map);
+    hemmerMarker.setMap(map);
+
+    kyrkMarker.addListener("click", () => {
+            kyrkmarker = new google.maps.InfoWindow({content: kyrkContent}).open({
+            anchor: kyrkMarker,
+            map,
+            shouldFocus: false,
+        });
+    });
+}
+</script>
+
+	<section class="wrapper style1 align-center" style="padding: 0px;">
+    <div class="inner" style="padding-top: 50px">
+        <h2>GETTING THERE</h2>
+    </div>
+</section>
+
+<section class="spotlight style1 onscroll-image-fade-in orient-left content-align-left image-position-center">
+    <div class="content">
+        <dl>
+            <dt class="align-center">The smooth option - <i>Fly to Helsinki and take the train to Vaasa</i></dt>
+            <dd>
+                <p style="margin: 0 0 0.5rem 0">Fly into Helsinki - we recommend <a href="https://www.finnair.fi" target="_blank">Finnair</a> or <a href="https://www.klm.nl" target="_blank">KLM</a></p>
+                <p style="margin: 0 0 0.5rem 0">Book a train ticket through <a href="https://www.vr.fi/en" target="_blank">VR - Railways</a> from Helsinki airport to Vaasa</p>
+                <p style="margin: 0 0 0.5rem 0">From the airport you take a 8 minute metro train (P train) to Tikkurila, where you transfer to the intercity train to Vaasa</p>
+                <br>
+                <p style="margin: 0 0 0.5rem 0">The commuter train time is flexible, while the intercity is not. Take an earlier commuter train than the time indicated on the ticket to not miss the connection.
+                The train takes around 4h and has plenty of amenities (restaurant, playground, sockets). Book a morning or early afternoon flight to be able to take a train the same day.</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="image">
+        <img src="images/finland-travel2.jpg" alt="" style="position: relative;">
+    </div>
+</section>
+
+<section class="spotlight style1 onscroll-image-fade-in orient-left content-align-left image-position-center">
+    <div class="content">
+        <dl>
+            <dt class="align-center">The quick option - <i>Fly to Vaasa with a layover</i></dt>
+            <dd>
+                <p style="margin: 0 0 0.5rem 0">Vaasa also has an airport!</p>
+                <p style="margin: 0 0 0.5rem 0">However there are not many connections, so be prepared for a layover</p>
+                <p style="margin: 0 0 0.5rem 0">Explore options through <a href="https://www.skyscanner.com" target="_blank">Skyscanner</a></p>
+            </dd>
+        </dl>
+    </div>
+    <div class="image">
+        <img src="images/flight-flight.jpg" alt="" style="position: relative;">
+    </div>
+</section>
+
+<section class="spotlight style1 onscroll-image-fade-in orient-left content-align-left image-position-center">
+    <div class="content">
+        <dl>
+            <dt class="align-center">The adventurous option - <i>For the airhaters</i></dt>
+            <dd>
+                <p style="margin: 0 0 0.5rem 0">You can drive the whole way, but it's very far. It will be a full vacation.</p>
+                <p style="margin: 0 0 0.5rem 0">Ferries can help to speed up the drive:</p>
+                <ul>
+                    <li>Travemünde - Helsinki (~29h)</li>
+                    <li>Tallin - Helsinki (~3h)</li>
+                    <li>Stockholm - Turku (~11h)</li> 
+                    <li>Umeå - Vaasa (~4h)</li>
+                </ul>
+            </dd>
+        </dl>
+    </div>
+    <div class="image">
+        <img src="images/no-russia.jpg" alt="" style="position: relative; min-width: 30rem;">
+    </div>
+</section>
+
+
+	<section class="spotlight style5 orient-right content-align-left image-position-center onscroll-image-fade-in" id="fourth">
+    <div class="content">
+        <h2>Accomodation</h2>
+        <p>
+            Accomodation is very dependent on transportation. If you have a car, <i>Solf Gästgivargård</i> is a good option. If you don't have a car,
+            we recommend staying in a hotel in Vaasa. We will arrange a taxi/bus going from Vaasa to the wedding location early afternoon and back to Vaasa at the end of the night.
+        </p>
+        <dl>
+            <a href="http://www.sulva.fi/main_sv.php?page=service" target="_blank"><dt>Solf Gästgivargård</dt></a>
+            <dd>
+                <p>
+                    This Bed&Breakfast is the only place to stay in Solf. It is only 500 meters from the wedding location. A double room (2 people) costs 70 euros per night, breakfast included.
+                    The website is not available in English, but we are happy to help.
+                </p>
+                <p>
+                    <a href="http://www.sulva.fi/main_sv.php?page=service" target="_blank" class="button fit small color1" style="max-width: 8rem; background-color: #E5EEFF;">Go to website</a>
+                </p>
+
+            </dd>
+            <dt>Other options</dt>
+            <dd>
+                <p>The nearest hotels are in Vaasa. You can also check Airbnb for a wider range of options, such as staying in a classic Scandinavian summer cabin.</p>
+            </dd>
+        </dl>
+    </div>
+    <div class="image">
+        <img src="images/party.jpg" alt="">
+    </div>
+</section>
+
+
+<script>
+var countDownDate = new Date("July 29, 2023 15:00:00").getTime();
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+	<section class="wrapper style2 align-center" style="padding-right: 15%; padding-left: 15%; background-color: #babdbc;">
+    <div class="inner">
+        <h2>Questions and thoughts</h2>
+        <p>
+            Please keep in touch with us around any questions, concerns, ideas or thoughts that might pop up.
+            You won't be bothering us, we are excited to make it a great experience for everyone. For real, we love talking about this shit. Give us any excuse, we'll jump on it.
+        </p>
+        <div class="index align-left">
+            <section>
+                <div class="content">
+                    <dl>
+                        <dt>This sounds tricky, is coming to Finland the only way to celebrate with you?</dt>
+                        <dd>
+                            <p>
+                                We completely understand this journey is not feasible for everyone. 
+                                No worries! We're also celebrating our wedding in Utrecht with a reception and party on the 16th of September 2023.
+                            </p>
+                        </dd>
+                        <dt>Do I need a car?</dt>
+                        <dd>
+                            <p>Public transportation will only get you as far as Vaasa, for the rest people get around by car. For the wedding we fix a taxi/bus going once from Vaasa to Solf early afternoon and back at the end of the night.</p>
+                        </dd>
+                        <dt>I want to team up with others traveling in, can I?</dt>
+                        <dd>
+                            <p>Yes very good idea! Contact us and we'll hook you up</p>
+                        </dd>
+                        <dt>I know nothing about Finland, explain like I'm five</dt>
+                        <dd>
+                            <ul>
+                                <li>Finland is a country in the EU using the Euro</li>
+                                <li>Finland has two official languages, you will see signs in both Swedish and Finnish. Cities can have wildly different names in each language. Important examples being Dickursby/Tikkurila and Solf/Sulva</li>
+                                <li>Power outlets are the same as in the Netherlands</li>
+                                <li>As good as everyone speaks English</li>
+                                <li>You can drink the tap water</li>
+                                <li>You can drink the Minttu</li>
+                            </ul>
+                        </dd>
+                        <dt>I can't find 'Solf' when searching?</dt>
+                        <dd>
+                            <p>Try with <b>Sulva</b>, the Finnish name for Solf</p>
+                        </dd>
+                        <dt>Will it snow?</dt>
+                        <dd>
+                            <p>No!... Right? RIGHT?!</p>
+                            <p>Finnish summers are unpredictable. The weather usually ranges between 14-30 degrees. So while snow is unlikely, don't leave your coats at home.</p>
+                        </dd>
+                        <dt>What's the dress code?</dt>
+                        <dd>
+                            <p>We don't have a specific dress code, wear something you feel nice in.</p>
+                        </dd>
+                        <dt>Do you have any wishes for wedding gifts?</dt>
+                        <dd>
+                            <p>
+                                You're already traveling a long way for our wedding, so please don't get us anything else!
+                            </p>
+                        </dd>
+                    </dl>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+
+	<script>
+  var countDownDate = new Date("July 29, 2023 15:00:00").getTime();
+  var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+    document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("countdown").innerHTML = "EXPIRED";
+    }
+  }, 1000);
+</script>
+
+
+<section class="spotlight style1 orient-right content-align-left image-position-left" id="reference" style="margin: 2rem">
+    <div class="content">
+        <h1 class="color1">See y'all there in</h1>
+        <h2 id="countdown" class="color1"></h2>
+    </div>
+    <div class="image">
+      <img src="images/countdown.jpg" alt="">
+  </div>
+</section>
+
+
+		
+		</div>
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+<script src='/assets/js/bundle.min.js'></script>
+
+
+	</body>
+</html>
